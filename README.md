@@ -17,6 +17,10 @@ We would like you to build a prototype web application that allows users to:
 * bundle install
 * rails s
 * bundle exec rails db:migrate
+* Go to localhost:3000
+* Click Sign in button, then Sign up button
+* Create new user, then log in
+* You will need to log out and create a second user to send payments
 
 ## Decisions:
 * I chose to use Devise as it is a very quick solution to implement for adding account creation and logins.
