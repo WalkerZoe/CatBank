@@ -4,7 +4,8 @@
     <h1>Cat Bank</h1>
     <h2>Welcome <%= current_customer.email %></h2>
     <p>Your balance is <%= current_customer.balance %> silveuros</p>
-    <%= button_to "Send silveuros", payment_path, method: :get %>
+    <%= button_to "Send silveuros", payments_path, method: :get %>
+    <%= button_to "See transactions", transactions_path, method: :get %>
   </div>
 <% else %>
   <%= button_to "Sign in", new_customer_session_path %> 

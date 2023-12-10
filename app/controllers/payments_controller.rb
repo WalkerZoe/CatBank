@@ -1,4 +1,4 @@
-class PaymentController < ApplicationController
+class PaymentsController < ApplicationController
   before_action :authenticate_customer!
 
   def index

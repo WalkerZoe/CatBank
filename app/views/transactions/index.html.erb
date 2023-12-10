@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Cat Bank</h1>
+  <h2>Transactions History</h2>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Sender</th>
+      <th>Recipient</th>
+      <th>Amount </th>
+    </tr>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.created_at %></td>
+        <td><%= transaction.sender.email %></td>
+        <td><%=transaction.recipient.email %></td>
+        <td><%=transaction.amount %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= button_to "Back", root_path, method: :get, class: "float_right" %>
+</div>
