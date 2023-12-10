@@ -25,11 +25,13 @@ We would like you to build a prototype web application that allows users to:
 ## Decisions:
 * I chose to use Devise as it is a very quick solution to implement for adding account creation and logins.
 * I have assumed CatBank does not provide overdrafts to simplify the problem.
-* As everyone starts with 100 Silveuros, I have added this as the DB default.
+* As everyone starts with 100 Silveuros, I have added this as the DB default for a Customer's balance. This could be modified via migration later if required.
+* I have used rails views to make a simple UI as this is much faster than implementing a front end framework such as React or Angular.
 
 ## Improvents I would make
 * Better errors/validation for payments
 * Add pagination, sort, search etc to transactions screen
 * Styling, especially transaction screen
-* Store more user details
-* Swap out rails front end 
+* Store more user details so users aren't addressed by email
+* Swap out rails front end
+* Moving authentication to use Auth0 or similar
