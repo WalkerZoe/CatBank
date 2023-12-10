@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_08_134814) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_10_154113) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -24,4 +24,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_08_134814) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_payments_on_recipient_id"
+    t.index ["sender_id"], name: "index_payments_on_sender_id"
+  end
+
+  add_foreign_key "payments", "customers", column: "recipient_id"
+  add_foreign_key "payments", "customers", column: "sender_id"
 end
