@@ -2,4 +2,17 @@
   <h1>Cat Bank</h1>
   <h2>Send money</h2>
   <p>Your balance is <%= current_customer.balance %> silveuros</p>
+
+  <p>Enter payment details below:</p>
+  <br>
+  <%= form_with model: @payment do |form| %>
+    <%= form.hidden_field :sender_id, value: current_customer.id =%>
+    <%= form.label :query, "Email address:" %>
+    <%= form.email_field :recipient_email %>
+    <%= form.label :query, "Amount:" %>
+    <%= form.number_field :amount, min: 1 %>
+    <%= form.submit "Send" %>
+  <% end %>
+
+  <%= button_to "Back", root_path, method: :get, class: "float_right" %>
 </div>

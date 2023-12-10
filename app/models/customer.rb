@@ -6,4 +6,12 @@ class Customer < ApplicationRecord
 
   has_many :sender_payments, class_name: 'Payment', foreign_key: 'sender_id'
   has_many :recipient_payments, class_name: 'Payment', foreign_key: 'recipient_id'
+
+  def add_to_balance(amount)
+    update!(balance: balance + amount)
+  end
+
+  def subtract_from_balance(amount)
+    update!(balance: balance - amount)
+  end
 end
